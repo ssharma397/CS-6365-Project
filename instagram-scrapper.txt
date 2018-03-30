@@ -1,0 +1,4 @@
+pip install instagram-scraper // for installing the instagram-scrapper package
+
+
+instagram-scraper --tag collegeofcomputing --media-metadata
