@@ -13,8 +13,26 @@ function readTextFile(file, callback) {
 //usage:C:\Users\shrut\Desktop\projects\WhatsTrendingInGeorgiaTech
 readTextFile("gtcomputing.json", function(text){
     var data = JSON.parse(text);
-    alert(data[0].display_url);
-    alert(data[0].id)
+    postData(data);
+   // alert(data[0].display_url);
+   // alert(data[0].id)
 
     console.log(data);
 });
+
+function postData(input) {
+    $.ajax({
+        type: "POST",
+        url: "twitter_search.py",
+        data: { param: input },
+        success: callbackFunc
+    });
+
+}
+
+function callbackFunc(response) {
+    // do something with the response
+    alert('success');
+    alert(response);
+    console.log(response);
+}
