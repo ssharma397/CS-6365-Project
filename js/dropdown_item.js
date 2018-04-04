@@ -22,7 +22,7 @@ for (var i = 0; i < obj.length; i++){
 function postData(input) {
     $.ajax({
         type: "POST",
-        url: "python_scripts/twitter_search.py",
+        url: "ProcessRequest.php",
         data: { param: input },
         success: callbackFunc
     });
