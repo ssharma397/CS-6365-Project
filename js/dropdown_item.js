@@ -32,7 +32,7 @@ function postData(input) {
 function callbackFunc(response) {
     // do something with the response
     alert('success');
-    alert(response);
+    //alert(response);
     console.log(response);
 }
 

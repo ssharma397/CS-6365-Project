@@ -54,14 +54,10 @@ def twitter():
 def insta():
 	insta_hashtag = request.json['param']
 	os.system("instagram-scraper --tag " + insta_hashtag + " --media-metadata --maximum 20")
-	#os.system("mv " + insta_hashtag + "/ static/")
-	
+	os.system("rm -R static/" + insta_hashtag)
+	os.system("mv " + insta_hashtag + "/ static/")
 	path = insta_hashtag + "/" + insta_hashtag + ".json"
-	data = json.load(open(path))
-	print ("first is: ")
-	print (str(data[0]['edge_media_to_caption']['edges'][0]['node']['text']))
-	data = jsonify(data)
-	return data
+	return path
 
 if __name__ == '__main__':
     app.run()

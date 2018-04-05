@@ -32,5 +32,5 @@ try {
     print $e->getMessage();
 }
 
-var_dump(json_decode($response));
+echo $response
 ?>
