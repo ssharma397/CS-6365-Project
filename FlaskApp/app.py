@@ -1,5 +1,8 @@
-from flask import Flask, render_template, request, redirect, url_for, abort, session, jsonify
+from flask import Flask, render_template, request, redirect, url_for, abort, session, jsonify, json
 import tweepy
+import os
+import json
+import codecs
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'F34TF$($e34D';
@@ -36,8 +39,6 @@ def twitter():
 		post=tweet.text
 		if post not in tweet_list:
 			tweet_list.append(post)
-			#tweets[count] = str(post.encode('utf-8'))
-			#count = count + 1
 		if(len(tweet_list) == 20):
 			break
 	
@@ -46,11 +47,21 @@ def twitter():
 		count = count + 1
 	print ("The number of tweets is: ", len(tweets))
 	print ("done")
-	#print ("")
-	#print ("")
 	tweets = jsonify(tweets)
-	#print (tweets)
 	return tweets
+	
+@app.route('/insta/', methods=['GET','POST'])
+def insta():
+	insta_hashtag = request.json['param']
+	os.system("instagram-scraper --tag " + insta_hashtag + " --media-metadata --maximum 20")
+	#os.system("mv " + insta_hashtag + "/ static/")
+	
+	path = insta_hashtag + "/" + insta_hashtag + ".json"
+	data = json.load(open(path))
+	print ("first is: ")
+	print (str(data[0]['edge_media_to_caption']['edges'][0]['node']['text']))
+	data = jsonify(data)
+	return data
 
 if __name__ == '__main__':
     app.run()

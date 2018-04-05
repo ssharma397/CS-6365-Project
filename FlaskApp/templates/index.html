@@ -9,7 +9,6 @@
 		<script type="text/javascript" src="json/gtcomputing.json"></script>
 		<script type="text/javascript" src="static/read_json.js"></script>
 		<script type="text/javascript" src="static/google_map.js"></script>
-		<!--<script type="text/javascript" src="static/dropdown_item.js"></script>-->
 		<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApUXQ_sGhNb39YEYx0OUlxJRXY2GKy5GM&callback=initMap"></script>
 		<style>
@@ -83,21 +82,36 @@
 			$(document).on('click', '.dropdown-menu li a', function() {
 				var value=$(this).html();
 				console.log(value);
-				var obj = [
-						{"name": "Football", "tag": "@GeorgiaTechFB"},
-						{"name": "Golf", "tag": "@GT_GOLF"}
+				var twitter_obj = [
+						{"name": "Football", "twitter_tag": "@GeorgiaTechFB", "insta_tag": "georgiatechfb"},
+						{"name": "Golf", "twitter_tag": "@GT_GOLF", "insta_tag": "georgiatechgolf"}
 				];
-				var hashtag;
-				for (var i = 0; i < obj.length; i++){
-					if (obj[i].name == value){
-						hashtag=obj[i].tag;
+				var twitter_hashtag;
+				var insta_hashtag;
+				for (var i = 0; i < twitter_obj.length; i++){
+					if (twitter_obj[i].name == value){
+						twitter_hashtag=twitter_obj[i].twitter_tag;
+						insta_hashtag=twitter_obj[i].insta_tag;
 					}
 				}
-				var responseVar;
-				send = {'param':hashtag}
-				responseVar = $.parseJSON($.ajax({
+				var twitter_responseVar;
+				var insta_responseVar;
+				twitter_send = {'param': twitter_hashtag}
+				insta_send = {'param': insta_hashtag}
+				twitter_responseVar = $.parseJSON($.ajax({
 					url: 'http://127.0.0.1:5000/twitter/',
-					data: JSON.stringify(send, null, '\t'),
+					data: JSON.stringify(twitter_send, null, '\t'),
+					type: 'POST',
+					contentType: 'application/json;charset=UTF-8',
+					async: false,
+					success: function(data) {
+						console.log(data);
+					}
+				}).responseText);
+				
+				insta_responseVar = $.parseJSON($.ajax({
+					url: 'http://127.0.0.1:5000/insta/',
+					data: JSON.stringify(insta_send, null, '\t'),
 					type: 'POST',
 					contentType: 'application/json;charset=UTF-8',
 					async: false,
