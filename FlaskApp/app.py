@@ -49,7 +49,7 @@ def twitter():
 	print ("done")
 	tweets = jsonify(tweets)
 	return tweets
-	
+	'''
 @app.route('/insta/', methods=['GET','POST'])
 def insta():
 	insta_hashtag = request.json['param']
@@ -58,6 +58,6 @@ def insta():
 	os.system("mv " + insta_hashtag + "/ static/")
 	path = insta_hashtag + "/" + insta_hashtag + ".json"
 	return path
-
+    '''
 if __name__ == '__main__':
     app.run()
