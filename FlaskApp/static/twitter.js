@@ -30,7 +30,7 @@ $(document).on('click', '.dropdown-menu li a', function() {
 				twitter_send = {'param': twitter_hashtag};
 				facebook_send={'param': facebook_id};
 				//insta_send = {'param': insta_hashtag}
-				twitter_responseVar = $.parseJSON($.ajax({
+				twitter_responseVar = $.ajax({
                     url: 'http://127.0.0.1:5000/twitter/',
                     data: JSON.stringify(twitter_send, null, '\t'),
                     type: 'POST',
@@ -62,11 +62,10 @@ $(document).on('click', '.dropdown-menu li a', function() {
                         });
 
                     }
-                }));
+                });
 
-                facebook_response=$.parseJSON($.ajax({
-
-                    url: 'http://127.0.0.1:5000/facebook/',
+                facebook_response=$.ajax({
+                    url: 'http://127.0.0.1:5000/fb/',
                     data: JSON.stringify(facebook_send, null, '\t'),
                     type: 'POST',
                     contentType: 'application/json;charset=UTF-8',
@@ -76,7 +75,7 @@ $(document).on('click', '.dropdown-menu li a', function() {
                     console.log(data);
                     }
 
-                }));
+                });
 
 
 
