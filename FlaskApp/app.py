@@ -51,13 +51,16 @@ def twitter():
 	tweets = jsonify(tweets)
 	return tweets
 
-@app.route('/facebook/', methods=['GET','POST'])
-def facebook(id):
-	token = "EAACEdEose0cBAGUJJYccWT5oe4ZB8XJ0uTeDpZCAcpvhrJ34gxWcT5PAReOT6UgGotFdiCbbril1Y4H5HfgaZBzzAwl3xurkgSEKGKZBB4OJCwJiJvxCYNGVjoOEf5n4EO0tWn71j0juZAUKarNTtllB1sibh1DRLVpX4Ht7PyomLnZBA0CREz5L1RZAhPJIzdcKWV8PusqRAZDZD"
+@app.route('/fb/', methods=['GET','POST'])
+def fb():
+	print 'in fb function'
+	token = "EAACEdEose0cBAPzDC1KfK6hW7ZButBF3xGzCZClIjZBQcoOnQhqT7ZB42ss8h0DALuFqx1TAWcKjYMqSbKXyh2QgGffCiJjs7JVk8jOgyQaaNUrImc93eZAqywjVu46RXHZBg2j5ZAJUxTM4OHsWgtrdkePTlBYqGzsShqqB1MzgeMZC4SVaeOWQezKyxQhQFLMZD"
+	id = request.json['param']
 	graph = facebook.GraphAPI(token)
 	page_id = id + '/feed'
 	page = graph.get_object(page_id)
 	posts=jsonify(page)
+	print 'got response'
 	return posts
 
 
