@@ -3,9 +3,10 @@ import tweepy
 import os
 import json
 import codecs
+import facebook
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'F34TF$($e34D';
+app.config['SECRET_KEY'] = 'F34TF$($e34D'
 
 @app.route('/')
 def home():
@@ -49,6 +50,17 @@ def twitter():
 	print ("done")
 	tweets = jsonify(tweets)
 	return tweets
+
+@app.route('/facebook/', methods=['GET','POST'])
+def facebook(id):
+	token = "EAACEdEose0cBAGUJJYccWT5oe4ZB8XJ0uTeDpZCAcpvhrJ34gxWcT5PAReOT6UgGotFdiCbbril1Y4H5HfgaZBzzAwl3xurkgSEKGKZBB4OJCwJiJvxCYNGVjoOEf5n4EO0tWn71j0juZAUKarNTtllB1sibh1DRLVpX4Ht7PyomLnZBA0CREz5L1RZAhPJIzdcKWV8PusqRAZDZD"
+	graph = facebook.GraphAPI(token)
+	page_id = id + '/feed'
+	page = graph.get_object(page_id)
+	posts=jsonify(page)
+	return posts
+
+
 	'''
 @app.route('/insta/', methods=['GET','POST'])
 def insta():
