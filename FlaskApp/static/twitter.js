@@ -70,18 +70,22 @@ $(document).on('click', '.dropdown-menu li a', function() {
                     type: 'POST',
                     contentType: 'application/json;charset=UTF-8',
                     async: false,
-                    success: function (data) {
+                    success: function (response) {
+                    var d=response.data;
 
                     $('#myModal').modal('show');
                         $('#myModal').on('shown.bs.modal', function () {
                             //$('#myModal').find('.modal-body').append(response);
-                            if (typeof data.errors === 'undefined' || data.errors.length < 1) {
-                                var $posts = $('<div class="row"> </div>');
+                            if (typeof response.errors === 'undefined' || response.errors.length < 1) {
+                                var $posts=$('<div class="row"> </div>');
+                                var d=response.data;
+                                for(var x=0;x<d.length;x++)
+                                 {
 
-                                $.each(data, function (i, j) {
+                                 $posts.append('<div class="row"> <div class="col-md-2 text-right"><img src="static/img/fb.png" style="margin: 0 auto;width:48px;height:48px;border-radius:50%;" > </div><div class ="col-md-10 style="word-wrap: break-word;" " ><p>' + d[x].message + '</p> </div> </div>')
 
-                                    $posts.append('<div class="row"> <div class="col-md-2 text-right"><img src="static/img/fb.png" style="margin: 0 auto;width:48px;height:48px;border-radius:50%;" > </div><div class ="col-md-10 style="word-wrap: break-word;" " ><p>' + data[i] + '</p> </div> </div>')
-                                });
+                                 };
+
                                 $('#fb').html($posts);
                                 $('p').linkify();
                                 $('#fb').linkify({
@@ -95,7 +99,7 @@ $(document).on('click', '.dropdown-menu li a', function() {
                         });
 
 
-                    console.log(data);
+
                     }
 
                 });
