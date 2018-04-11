@@ -1,6 +1,10 @@
 $(document).on('click', '.dropdown-menu li a', function() {
 				var value=$(this).html();
 				console.log(value);
+				getInfo(value);
+});
+
+function getInfo(value) {
 				var twitter_obj = [
 						{"name": "Football", "twitter_tag": "@GeorgiaTechFB", "insta_tag": "georgiatechfb", "facebook_id": ""},
 						{"name": "Golf", "twitter_tag": "@GT_GOLF", "insta_tag": "georgiatechgolf", "facebook_id": "GeorgiaTechGolf"},
@@ -12,9 +16,16 @@ $(document).on('click', '.dropdown-menu li a', function() {
 						{"name": "India Club", "twitter_tag": "@GTIndiaClub", "insta_tag": "icgt", "facebook_id": ""},
 						{"name": "China Club", "twitter_tag": "@gatechCSA", "insta_tag": "csa_gatech", "facebook_id": ""},
 						{"name": "Korea Club", "twitter_tag": "", "insta_tag": "", "facebook_id": ""},
-						{"name": "French Club", "twitter_tag": "", "insta_tag": "", "facebook_id": ""}
+						{"name": "French Club", "twitter_tag": "", "insta_tag": "", "facebook_id": ""},
+						{"name": "Georgia Institute of Technology", "twitter_tag": "@GeorgiaTech", "insta_tag": "georgiatech", "facebook_id": "georgiatech"},
+						{"name": "Student Center", "twitter_tag": "@gtstudentcenter", "insta_tag": "gtstudentcenter", "facebook_id": "GTStuCen"},
+						{"name": "College of Computing", "twitter_tag": "@gtcomputing", "insta_tag": "gtcomputing", "facebook_id": ""},
+						{"name": "Clough Undergraduate Learning Center", "twitter_tag": "@GTClough", "insta_tag": "", "facebook_id": ""},
+						{"name": "Tech Square Starbucks", "twitter_tag": "", "insta_tag": "", "facebook_id": ""},
+						{"name": "Campus Recreation Center", "twitter_tag": "@CRCatGT", "insta_tag": "crcatgeorgiatech", "facebook_id": "crcatgt"},
+						{"name": "Tech Square", "twitter_tag": "@TechSqATL", "insta_tag": "techsquare", "facebook_id": ""},
+						{"name": "Scheller College of Business", "twitter_tag": "@georgiatechbsch", "insta_tag": "schellercollegeofbusiness", "facebook_id": "SchellerCollege"}
 				];
-
 
 				var twitter_hashtag;
 				var facebook_id;
@@ -130,4 +141,4 @@ $.getJSON(path, function(json) {
     //any kind of manipulation of the insta data has to be done in this section only
 });*/
 
-});
+}

@@ -3,17 +3,18 @@ function initMap() {
 		var scheller = {lat: 33.776515, lng: -84.387786 };
 		var coc = {lat: 33.777631, lng: -84.397321 };
 		var sc = {lat: 33.774545, lng: -84.398651 };
-		var billmoore = {lat: 33.772677, lng: -84.393974 };
 		var clough = {lat: 33.775134, lng: -84.396426 };
-		var starbucksTS = {lat: 33.776814, lng: -84.388399 };
+		var crc = {lat: 33.775958, lng: -84.403992 };
+		var techsquare = {lat: 33.776887, lng: -84.389098 };
 
 		var tooltip1 = 'Georgia Institute of Technology'
 		var tooltip2 = 'Scheller College of Business'
 		var tooltip3 = 'College of Computing'
 		var tooltip4 = 'Student Center'
-		var tooltip5 = 'Bill Moore Success Center'
-		var tooltip6 = 'Clough Undergraduate Learning Center'
-		var tooltip7 = 'Starbucks at Tech Square'
+		var tooltip5 = 'Clough Undergraduate Learning Center'
+		var tooltip6 = 'Campus Recreation Center'
+		var tooltip7 = 'Tech Square'
+		
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 16,
           center: GT
@@ -39,41 +40,40 @@ function initMap() {
 		  title: tooltip4
         });
 		var marker5 = new google.maps.Marker({
-          position: billmoore,
+          position: clough,
           map: map,
 		  title: tooltip5
         });
 		var marker6 = new google.maps.Marker({
-          position: clough,
+          position: crc,
           map: map,
 		  title: tooltip6
         });
 		var marker7 = new google.maps.Marker({
-          position: starbucksTS,
+          position: techsquare,
           map: map,
 		  title: tooltip7
         });
-
-        marker1.addListener('click', function() {
-          $("#myModal").modal();
-        });
+		
+		marker1.addListener('click', function() {
+			getInfo(tooltip1);
+		});
 		marker2.addListener('click', function() {
-          $("#myModal").modal();
-        });
+			getInfo(tooltip2);
+		});
 		marker3.addListener('click', function() {
-          $("#myModal").modal();
-        });
+			getInfo(tooltip3);
+		});
 		marker4.addListener('click', function() {
-          $("#myModal").modal();
-        });
+			getInfo(tooltip4);
+		});
 		marker5.addListener('click', function() {
-          $("#myModal").modal();
-        });
+			getInfo(tooltip5);
+		});
 		marker6.addListener('click', function() {
-          $("#myModal").modal();
-        });
+			getInfo(tooltip6);
+		});
 		marker7.addListener('click', function() {
-          $("#myModal").modal();
-        });
-      }
-
+			getInfo(tooltip7);
+		});
+	}
