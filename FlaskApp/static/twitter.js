@@ -84,8 +84,6 @@ function getInfo(value) {
                     success: function (response) {
                     var d=response.data;
 
-                    $('#myModal').modal('show');
-                        $('#myModal').on('shown.bs.modal', function () {
                             //$('#myModal').find('.modal-body').append(response);
                             if (typeof response.errors === 'undefined' || response.errors.length < 1) {
                                 var $posts=$('<div class="row"> </div>');
@@ -107,7 +105,6 @@ function getInfo(value) {
                             } else {
                                 $('#fb p:first').text('Response error');
                             }
-                        });
 
 
 
