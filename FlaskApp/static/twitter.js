@@ -6,25 +6,35 @@ $(document).on('click', '.dropdown-menu li a', function() {
 
 function getInfo(value) {
 				var twitter_obj = [
-						{"name": "Football", "twitter_tag": "@GeorgiaTechFB", "insta_tag": "georgiatechfb", "facebook_id": ""},
-						{"name": "Golf", "twitter_tag": "@GT_GOLF", "insta_tag": "georgiatechgolf", "facebook_id": "GeorgiaTechGolf"},
-						{"name": "Basketball", "twitter_tag": "", "insta_tag": "", "facebook_id": ""},
-						{"name": "Softball", "twitter_tag": "@GaTechSoftball", "insta_tag": "georgiatechsoftball", "facebook_id": ""},
-						{"name": "Tennis", "twitter_tag": "", "insta_tag": "", "facebook_id": ""},
-						{"name": "Baseball", "twitter_tag": "@GTBaseball", "insta_tag": "gt_baseball", "facebook_id": ""},
-						{"name": "Track and Field", "twitter_tag": "@GT_trackNfield", "insta_tag": "georgiatechtrackandfield", "facebook_id": ""},
-						{"name": "India Club", "twitter_tag": "@GTIndiaClub", "insta_tag": "icgt", "facebook_id": ""},
-						{"name": "China Club", "twitter_tag": "@gatechCSA", "insta_tag": "csa_gatech", "facebook_id": ""},
-						{"name": "Korea Club", "twitter_tag": "", "insta_tag": "", "facebook_id": ""},
-						{"name": "French Club", "twitter_tag": "", "insta_tag": "", "facebook_id": ""},
-						{"name": "Georgia Institute of Technology", "twitter_tag": "@GeorgiaTech", "insta_tag": "georgiatech", "facebook_id": "georgiatech"},
-						{"name": "Student Center", "twitter_tag": "@gtstudentcenter", "insta_tag": "gtstudentcenter", "facebook_id": "GTStuCen"},
-						{"name": "College of Computing", "twitter_tag": "@gtcomputing", "insta_tag": "gtcomputing", "facebook_id": ""},
-						{"name": "Clough Undergraduate Learning Center", "twitter_tag": "@GTClough", "insta_tag": "", "facebook_id": ""},
-						{"name": "Tech Square Starbucks", "twitter_tag": "", "insta_tag": "", "facebook_id": ""},
-						{"name": "Campus Recreation Center", "twitter_tag": "@CRCatGT", "insta_tag": "crcatgeorgiatech", "facebook_id": "crcatgt"},
-						{"name": "Tech Square", "twitter_tag": "@TechSqATL", "insta_tag": "techsquare", "facebook_id": ""},
-						{"name": "Scheller College of Business", "twitter_tag": "@georgiatechbsch", "insta_tag": "schellercollegeofbusiness", "facebook_id": "SchellerCollege"}
+						{"name": "College of Computing", "twitter_tag": "@CCAdviceGT", "facebook_id": "gtcomputing"},
+						{"name": "Scheller College of Business", "twitter_tag": "@georgiatechbsch", "facebook_id": "SchellerCollege"},
+						{"name": "College of Design", "twitter_tag": "", "facebook_id": "DESIGNatGT"},
+						{"name": "College of Engineering", "twitter_tag": "@GaTechEngineers", "facebook_id": "GTengineering"},
+						{"name": "Ivan Allen College of Liberal Arts", "twitter_tag": "@IvanAllenGT", "facebook_id": "gtliberalarts"},
+						{"name": "College of Sciences", "twitter_tag": "@GT_Sciences", "facebook_id": "GTSciences"},
+						
+						{"name": "India Club", "twitter_tag": "@GTIndiaClub", "facebook_id": "GTIndiaClub"},
+						{"name": "SAA", "twitter_tag": "@GTSAA", "facebook_id": "gtsaa"},
+						{"name": "SGA", "twitter_tag": "@gatechsga", "facebook_id": "GTgradSGA"},
+						
+						{"name": "Career Fair", "twitter_tag": "@GTCareerFair", "facebook_id": "GeorgiaTechCareerFair"},
+						
+						{"name": "Football", "twitter_tag": "@GeorgiaTechFB", "facebook_id": "GTFootball"},
+						{"name": "Basketball", "twitter_tag": "@GTMBB", "facebook_id": "gtmensbasketball"},
+						{"name": "Softball", "twitter_tag": "@GaTechSoftball", "facebook_id": ""},
+						{"name": "Tennis", "twitter_tag": "@GT_WTEN", "facebook_id": "gtmenstennis"},
+						{"name": "Baseball", "twitter_tag": "@GTBaseball", "facebook_id": ""},
+						{"name": "Golf", "twitter_tag": "@GT_GOLF", "facebook_id": "GeorgiaTechGolf"},
+						{"name": "Track and Field", "twitter_tag": "@GT_trackNfield", "facebook_id": "georgiatechtrack"},
+						
+						{"name": "Student Center", "twitter_tag": "@gtstudentcenter", "facebook_id": "GTStuCen"},
+						{"name": "Clough Undergraduate Learning Center", "twitter_tag": "@GTClough", "facebook_id": ""},
+						{"name": "Campus Recreation Center", "twitter_tag": "@CRCatGT", "facebook_id": "crcatgt"},
+						{"name": "Stamps Health Services", "twitter_tag": "@stampshealth", "facebook_id": ""},
+
+						{"name": "Tech Square Starbucks", "twitter_tag": "", "facebook_id": ""},
+						{"name": "Georgia Institute of Technology", "twitter_tag": "@GeorgiaTech", "facebook_id": "georgiatech"},
+						{"name": "Tech Square", "twitter_tag": "@TechSqATL", "facebook_id": ""},
 				];
 
 				var twitter_hashtag;

@@ -6,6 +6,7 @@ function initMap() {
 		var clough = {lat: 33.775134, lng: -84.396426 };
 		var crc = {lat: 33.775958, lng: -84.403992 };
 		var techsquare = {lat: 33.776887, lng: -84.389098 };
+		var stampshealth = {lat: 33.774978, lng: -84.403119 };
 
 		var tooltip1 = 'Georgia Institute of Technology'
 		var tooltip2 = 'Scheller College of Business'
@@ -14,6 +15,7 @@ function initMap() {
 		var tooltip5 = 'Clough Undergraduate Learning Center'
 		var tooltip6 = 'Campus Recreation Center'
 		var tooltip7 = 'Tech Square'
+		var tooltip8 = 'Stamps Health Services'
 		
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 16,
@@ -54,6 +56,11 @@ function initMap() {
           map: map,
 		  title: tooltip7
         });
+		var marker8 = new google.maps.Marker({
+          position: stampshealth,
+          map: map,
+		  title: tooltip8
+        });
 		
 		marker1.addListener('click', function() {
 			getInfo(tooltip1);
@@ -75,5 +82,8 @@ function initMap() {
 		});
 		marker7.addListener('click', function() {
 			getInfo(tooltip7);
+		});
+		marker8.addListener('click', function() {
+			getInfo(tooltip8);
 		});
 	}
