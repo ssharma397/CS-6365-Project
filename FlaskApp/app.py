@@ -37,12 +37,13 @@ def twitter():
 	tweets={}
 	tweet_list = []
 	for tweet in limit_handled(tweepy.Cursor(api.search,q=hashtag,count=20,lang="en",since="2018-04-04").items()):
+		#print (tweet.text)
+		#print ("")
 		post=tweet.text
 		if post not in tweet_list:
-			tweet_list.append(post)
+			tweet_list.append(tweet.user.name + ": + " + post)
 		if(len(tweet_list) == 20):
 			break
-	
 	for ele in tweet_list:
 		tweets[count] = ele
 		count = count + 1
@@ -53,17 +54,14 @@ def twitter():
 
 @app.route('/fb/', methods=['GET','POST'])
 def fb():
-
-	token = "EAACEdEose0cBAOoF9aN2pRAz8hnRjtdcCx6HTOGNR8yQFYZCZAGISkH1jEhMCQeVVgp6ZAHXTkh2cl3iwTC2IGotCA2LZAVmaMIsLellD47mks6NTu3NmzTrGpBoVlfb6HuYmIPqXQCg4gDKZBE2RZB9fZBTKAnOZBqIcOPIfWE4UgvNd6yrtCdRWcWA5iZBLWYUZD"
+	token = "EAACEdEose0cBAI9bRg3t5OQxTJeGbenoUaRhmvSq2XCmZByubtQYW9DZADh6hOz9kHpZCITHQzGDbs4gUhV2z1O5ALH014Fn95IpOnztpXWJQ1HJyP6ZB4gmUhjvZCOeDNeSeSZCUqWCzVLaCbgoSEenSFDLRbHLALKPTJE3DGRZC4Tx5OrKsWJqg6sghZCIzfgZD"
 	id = request.json['param']
 	graph = facebook.GraphAPI(token)
 	page_id = id + '/feed'
 	page = graph.get_object(page_id)
 	posts=jsonify(page)
-
 	return posts
-
-
+	
 	'''
 @app.route('/insta/', methods=['GET','POST'])
 def insta():
