@@ -1,7 +1,18 @@
 $(document).on('click', '.dropdown-menu li a', function() {
-				var value=$(this).html();
+				var value=$(this).text();
 				console.log(value);
+				$('#myModal').modal('show');
 				getInfo(value);
+});
+
+$(function(){
+	$.ajax({
+		url: 'http://127.0.0.1:5000/twitter/place/',
+		type: 'GET',
+		datatype: 'JSON',
+		success: function(response) {},
+		error: function(errors) {}
+	});
 });
 
 function getInfo(value) {
@@ -40,19 +51,16 @@ function getInfo(value) {
 	var twitter_hashtag;
 	var facebook_id;
 	var image_id;
-	//var insta_hashtag;
 	for (var i = 0; i < twitter_obj.length; i++){
 		if (twitter_obj[i].name == value){
 			twitter_hashtag=twitter_obj[i].twitter_tag;
 			facebook_id=twitter_obj[i].facebook_id;
 			image_id = twitter_obj[i].image_id;
-			//insta_hashtag=twitter_obj[i].insta_tag;
 		}
 	}
 	var twitter_responseVar;
 	twitter_send = {'param': twitter_hashtag};
 	facebook_send={'param': facebook_id};
-	//insta_send = {'param': insta_hashtag}
 	if(twitter_hashtag != "") {
 		twitter_responseVar = $.ajax({
 			url: 'http://127.0.0.1:5000/twitter/',
@@ -61,12 +69,8 @@ function getInfo(value) {
 			contentType: 'application/json;charset=UTF-8',
 			async: false,
 			success: function (data) {
-				//console.log(response);
-				// console.log(response[1]);
-				// console.log(response[2]);
 				$('#myModal').modal('show');
 				$('#myModal').on('shown.bs.modal', function () {
-					//$('#myModal').find('.modal-body').append(response);
 					if (typeof data.errors === 'undefined' || data.errors.length < 1) {
 						var $tweets = $('<div class="row"> </div>');
 						$.each(data, function (i, j) {
@@ -100,14 +104,11 @@ function getInfo(value) {
 			contentType: 'application/json;charset=UTF-8',
 			async: false,
 			success: function (response) {
-				//console.log(response);
 				var d=response.data;
-				//$('#myModal').find('.modal-body').append(response);
 				if (typeof response.errors === 'undefined' || response.errors.length < 1) {
 					var $posts=$('<div class="row"> </div>');
 					var d=response.data;
 					for(var x=0;x<d.length;x++){
-						//console.log(d[x]);
 						if(d[x].message != undefined)
 							$posts.append('	<div class="row"> \
 												<div class="col-md-2 text-right">\
@@ -129,25 +130,4 @@ function getInfo(value) {
 			}
 		});
 	}
-	/*$.ajax({
-		url: 'http://127.0.0.1:5000/insta/',
-		data: JSON.stringify(insta_send, null, '\t'),
-		type: 'POST',
-		contentType: 'application/json;charset=UTF-8',
-		async: false,
-		success: function(data) {
-		}
-	});
-	//length of result object 'responseVar' is found by Object.keys(responseVar).length
-	var path = ("../static/" + insta_hashtag + "/" + insta_hashtag + ".json").toString();
-	$.getJSON(path, function(json) {
-		var insta_responseVar = [];
-		for(i=0;i<json.length;i++) {
-			if(json[i]['edge_media_to_caption']['edges'].length > 0)
-				insta_responseVar.push(json[i]['edge_media_to_caption']['edges'][0]['node']['text']);
-		}
-		console.log(insta_responseVar[0]);
-		console.log(insta_responseVar[1]);
-		//any kind of manipulation of the insta data has to be done in this section only
-	});*/
 }

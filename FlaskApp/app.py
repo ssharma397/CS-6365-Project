@@ -10,7 +10,7 @@ app.config['SECRET_KEY'] = 'F34TF$($e34D'
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+	return render_template('index.html')
 
 @app.route('/twitter/', methods=['GET','POST'])
 def twitter():
@@ -61,16 +61,6 @@ def fb():
 	page = graph.get_object(page_id)
 	posts=jsonify(page)
 	return posts
-	
-	'''
-@app.route('/insta/', methods=['GET','POST'])
-def insta():
-	insta_hashtag = request.json['param']
-	os.system("instagram-scraper --tag " + insta_hashtag + " --media-metadata --maximum 20")
-	os.system("rm -R static/" + insta_hashtag)
-	os.system("mv " + insta_hashtag + "/ static/")
-	path = insta_hashtag + "/" + insta_hashtag + ".json"
-	return path
-    '''
+
 if __name__ == '__main__':
-    app.run()
+	app.run()
