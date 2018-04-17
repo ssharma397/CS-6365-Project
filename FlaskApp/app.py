@@ -54,7 +54,7 @@ def twitter():
 
 @app.route('/fb/', methods=['GET','POST'])
 def fb():
-	token = "EAACEdEose0cBAI9bRg3t5OQxTJeGbenoUaRhmvSq2XCmZByubtQYW9DZADh6hOz9kHpZCITHQzGDbs4gUhV2z1O5ALH014Fn95IpOnztpXWJQ1HJyP6ZB4gmUhjvZCOeDNeSeSZCUqWCzVLaCbgoSEenSFDLRbHLALKPTJE3DGRZC4Tx5OrKsWJqg6sghZCIzfgZD"
+	token = "EAACEdEose0cBANAL92C2EWg1YneE2iJZCupgbJWpj8E6lYo2xPJjN2DOBWuYxNobwVhySF6zyO4yy687jFTgqByFnRbOfqX5x4qVh8edZCVGmX14TGctcUT8FHNJ3v5pgZAMxexRvoo1fAgJieerNQ3Ih5bn6ltbIqW5hhOrumPgsfI0PWLCPZCbDBhbeZAkZD"
 	id = request.json['param']
 	graph = facebook.GraphAPI(token)
 	page_id = id + '/feed'
