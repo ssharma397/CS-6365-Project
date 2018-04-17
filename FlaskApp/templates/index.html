@@ -13,6 +13,7 @@
 		<link href="static/css/mdb.min.css" rel="stylesheet">
 		<!-- Your custom styles (optional) -->
 		<link href="static/css/style.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<style>
 			div.banner
 			{
@@ -20,18 +21,16 @@
 		</style>
 	</head>
 	<body>
-		<div id="fb-root"></div>
-		<script>
-			(function(d, s, id) {
-				var js, fjs = d.getElementsByTagName(s)[0];
-				if (d.getElementById(id)) 
-					return;
-				js = d.createElement(s); 
-				js.id = id;
-				js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12';
-				fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
-		</script>
+        <div id="fb-root"></div>
+		<script>(function(d, s, id) {
+  		var js, fjs = d.getElementsByTagName(s)[0];
+  		if (d.getElementById(id)) return;
+  		js = d.createElement(s); js.id = id;
+  		js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.12';
+  		fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+
+
 		<!--Main Navigation-->
 		<!--Banner-->
 		<div class="banner" >
@@ -40,7 +39,7 @@
 		</div>
 		<!--Main Navigation-->
 		<nav class="nav_2_header navbar navbar-expand-lg navbar-light">
-			<div class="container">
+			<div class="container" style="margin-left: 0;">
 			<!-- Collapse -->
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -49,7 +48,7 @@
 				<div class="collapse navbar-collapse " id="navbarSupportedContent">
 					<!-- Left -->
 					<ul class="navbar-nav mr-auto">
-						<li class="nav-item"><a class="waves-effect nav-link" href="#">Home</a></li>
+						<li class="nav-item"><a class="waves-effect nav-link" href="#"><i class="fa fa-home"></i> </a></li>
 						<li class="dropdown nav-item" id="colleges">
 							<a class="dropdown-toggle waves-effect nav-link" data-toggle="dropdown" href="#">Colleges & Schools<span class="caret"></span></a>
 							<ul class="dropdown-menu">
@@ -139,7 +138,8 @@
 					<div class="col-lg-4 col-md-12 mb-4">
 						<!--Card-->
 						<div class="card">
-							<a class="twitter-timeline" data-width="100%" data-height="400px" href="https://twitter.com/GeorgiaTech?ref_src=twsrc%5Etfw">Tweets by Georgia Tech</a>
+							<a class="twitter-timeline" data-width="350" data-height="564" href="https://twitter.com/GeorgiaTech?ref_src=twsrc%5Etfw">Tweets by GeorgiaTech</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 						</div>
 						<!--/.Card-->
 					</div>
@@ -148,21 +148,23 @@
 					<div class="col-lg-4 col-md-6 mb-4">
 						<!--Card-->
 						<div class="card">
-							<div class="fb-page" data-href="https://www.facebook.com/georgiatech/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true" ><blockquote cite="https://www.facebook.com/georgiatech/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/georgiatech/">Georgia Tech</a></blockquote></div></div>
 							<!--/.Card-->
+							<div class="fb-page" data-href="https://www.facebook.com/georgiatech/" data-tabs="timeline" data-width="350" data-height="564" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/georgiatech/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/georgiatech/">Georgia Tech</a></blockquote></div>
+						</div>
 						</div>
 						<!--Grid column-->
 					<!--Grid column-->
 					<div class="col-lg-4 col-md-6 mb-4">
 						<!--Card-->
 						<div class="card">
-							<a href="https://instawidget.net/v/user/georgiatech" id="link-6120ec07ab1c5d3621624c36a6224e1bc054e0b7adf69666898cce287a467b15">@georgiatech</a>
-							<script src="https://instawidget.net/js/instawidget.js?u=6120ec07ab1c5d3621624c36a6224e1bc054e0b7adf69666898cce287a467b15&width=100%"></script>
-						</div>
+							<a href="https://instawidget.net/v/user/georgiatech" id="link-b3d4ad4081d85b76591b22416254fa621e035849da7270af1304faca95d0d3b2">@georgiatech</a>
+                            <script src="https://instawidget.net/js/instawidget.js?u=b3d4ad4081d85b76591b22416254fa621e035849da7270af1304faca95d0d3b2&width=350px"></script>
+
+							</div>
 						<!--/.Card-->
 					</div>
 					<!--Grid column-->
-					</div>
+
 					<!--Grid row-->
 				</section>
 				<!--Section: Cards-->
@@ -181,7 +183,7 @@
 			<!--Copyright-->
 			<div class="footer-copyright py-3">
 				© 2018 Copyright:
-				<a href="" target="_blank"> SSRT </a>
+				<a href="" target="_blank"> @gatech </a>
 			</div>
 			<!--/.Copyright-->
 		</footer>
