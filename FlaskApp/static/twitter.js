@@ -5,40 +5,32 @@ $(document).on('click', '.dropdown-menu li a', function() {
 				getInfo(value);
 });
 
-$(document).on('click', '.dropdown-menu1 li a', function() {
-				var value=$(this).text();
-				console.log(value);
-				//$('#myModal1').modal('show');
-				switch(value) {
-					case "Scheller College of Business" :	trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"/m/026fpr8","geo":"","time":"today 12-m"}],"category":0,"property":""}, {"exploreQuery":"q=%2Fm%2F026fpr8&date=today 12-m","guestPath":"https://trends.google.com:443/trends/embed/"});
-															document.write("\n\n\n\n");
-															trends.embed.renderExploreWidget("RELATED_TOPICS", {"comparisonItem":[{"keyword":"college of computing gatech","geo":"","time":"today 12-m"}],"category":0,"property":""}, {"exploreQuery":"q=college%20of%20computing%20gatech&date=today 12-m","guestPath":"https://trends.google.com:443/trends/embed/"});
-												break;
-					case "College of Computing" : trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"college of computing gatech","geo":"","time":"today 12-m"}],"category":0,"property":""}, {"exploreQuery":"q=college%20of%20computing%20gatech&date=today 12-m","guestPath":"https://trends.google.com:443/trends/embed/"});
-												break;
-					case "College of Design" : trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"/m/026dgm4","geo":"","time":"today 12-m"}],"category":0,"property":""}, {"exploreQuery":"q=%2Fm%2F026dgm4&date=today 12-m","guestPath":"https://trends.google.com:443/trends/embed/"});
-												break;
-					case "College of Engineering" : trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"/m/026fwfw","geo":"","time":"today 12-m"}],"category":0,"property":""}, {"exploreQuery":"q=%2Fm%2F026fwfw&date=today 12-m","guestPath":"https://trends.google.com:443/trends/embed/"});
-												break;
-					case "Ivan Allen College of Liberal Arts" : trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"/m/026fpv0","geo":"","time":"today 12-m"}],"category":0,"property":""}, {"exploreQuery":"q=%2Fm%2F026fpv0&date=today 12-m","guestPath":"https://trends.google.com:443/trends/embed/"});
-												break;
-					case "College of Sciences" : trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"/m/026fwkn","geo":"","time":"today 12-m"}],"category":0,"property":""}, {"exploreQuery":"q=%2Fm%2F026fwkn&date=today 12-m","guestPath":"https://trends.google.com:443/trends/embed/"});
-												break;
-				}
-});
-
 $(function(){
 	$.ajax({
 		url: 'http://127.0.0.1:5000/twitter/place/',
 		type: 'GET',
 		datatype: 'JSON',
 		success: function(response) {
-		console.log(response)
 		},
+
 		error: function(errors) {
-		console.log(errors)
 		}
+
 	});
+});
+
+$(function()
+{
+    $.ajax(
+            {
+            url: 'http://127.0.0.1:5000/trends',
+            type: 'GET',
+            success: function(response) {
+		        },
+
+		    error: function(errors) {
+		        }
+});
 });
 
 function getInfo(value) {
@@ -98,7 +90,7 @@ function getInfo(value) {
 				$('#myModal').modal('show');
 				$('#myModal').on('shown.bs.modal', function () {
 					if (typeof data.errors === 'undefined' || data.errors.length < 1) {
-						var $tweets = $('<div class="row"><p style="text-align: center;"><font size="5" face="comic sans ms"><b>' + value + '</b></font></p></div>');
+						var $tweets = $('<div class="row"> </div>');
 						$.each(data, function (i, j) {
 							var res = data[i].split("+")
 							$tweets.append('<div class="row"> \
@@ -132,7 +124,7 @@ function getInfo(value) {
 			success: function (response) {
 				var d=response.data;
 				if (typeof response.errors === 'undefined' || response.errors.length < 1) {
-					var $posts = $('<div class="row"><p style="text-align: center;"><font size="5"><b>' + value + '</b></font></p></div>');
+					var $posts=$('<div class="row"> </div>');
 					var d=response.data;
 					for(var x=0;x<d.length;x++){
 						if(d[x].message != undefined)
