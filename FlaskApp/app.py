@@ -12,6 +12,10 @@ app.config['SECRET_KEY'] = 'F34TF$($e34D'
 def home():
 	return render_template('index.html')
 
+@app.route('/trends/', methods=['GET','POST'])
+def trends():
+	return render_template('trends.html')
+
 @app.route('/twitter/', methods=['GET','POST'])
 def twitter():
 	consumer_key = 'RWJVq4QaNza8zSp3IHofMrfQn'
@@ -54,13 +58,14 @@ def twitter():
 
 @app.route('/fb/', methods=['GET','POST'])
 def fb():
-	token = "EAACEdEose0cBADW8mq3aDy8JpuDzxdkr2uvirsGLG2cYUFq6omiq1wj83bo9B4ZAnVa7V8ZApQTLoYFa700luUC1v4gTifTAoiXxmQkUp5uy6n4BnqZA2Q6brSWZCQcLfMo4uJuJPZBi0NBjEVsf1u2ZCGZBvhEusgmBLBzLHOxpm823ZC73O6A0sicZBU2burgAZD"
+	token = "EAACEdEose0cBAI9bRg3t5OQxTJeGbenoUaRhmvSq2XCmZByubtQYW9DZADh6hOz9kHpZCITHQzGDbs4gUhV2z1O5ALH014Fn95IpOnztpXWJQ1HJyP6ZB4gmUhjvZCOeDNeSeSZCUqWCzVLaCbgoSEenSFDLRbHLALKPTJE3DGRZC4Tx5OrKsWJqg6sghZCIzfgZD"
 	id = request.json['param']
 	graph = facebook.GraphAPI(token)
 	page_id = id + '/feed'
 	page = graph.get_object(page_id)
 	posts=jsonify(page)
 	return posts
+
 
 if __name__ == '__main__':
 	app.run()
