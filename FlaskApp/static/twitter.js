@@ -10,8 +10,9 @@ $(document).on('click', '.dropdown-menu1 li a', function() {
 				console.log(value);
 				//$('#myModal1').modal('show');
 				switch(value) {
-					case "Scheller College of Business" : trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"/m/026fpr8","geo":"","time":"today 12-m"}],"category":0,"property":""}, {"exploreQuery":"q=%2Fm%2F026fpr8&date=today 12-m","guestPath":"https://trends.google.com:443/trends/embed/"});
-														  trends.embed.renderExploreWidget("RELATED_TOPICS", {"comparisonItem":[{"keyword":"college of computing gatech","geo":"","time":"today 12-m"}],"category":0,"property":""}, {"exploreQuery":"q=college%20of%20computing%20gatech&date=today 12-m","guestPath":"https://trends.google.com:443/trends/embed/"});
+					case "Scheller College of Business" :	trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"/m/026fpr8","geo":"","time":"today 12-m"}],"category":0,"property":""}, {"exploreQuery":"q=%2Fm%2F026fpr8&date=today 12-m","guestPath":"https://trends.google.com:443/trends/embed/"});
+															document.write("\n\n\n\n");
+															trends.embed.renderExploreWidget("RELATED_TOPICS", {"comparisonItem":[{"keyword":"college of computing gatech","geo":"","time":"today 12-m"}],"category":0,"property":""}, {"exploreQuery":"q=college%20of%20computing%20gatech&date=today 12-m","guestPath":"https://trends.google.com:443/trends/embed/"});
 												break;
 					case "College of Computing" : trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"college of computing gatech","geo":"","time":"today 12-m"}],"category":0,"property":""}, {"exploreQuery":"q=college%20of%20computing%20gatech&date=today 12-m","guestPath":"https://trends.google.com:443/trends/embed/"});
 												break;
@@ -31,8 +32,12 @@ $(function(){
 		url: 'http://127.0.0.1:5000/twitter/place/',
 		type: 'GET',
 		datatype: 'JSON',
-		success: function(response) {},
-		error: function(errors) {}
+		success: function(response) {
+		console.log(response)
+		},
+		error: function(errors) {
+		console.log(errors)
+		}
 	});
 });
 
