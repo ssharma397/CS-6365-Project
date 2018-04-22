@@ -51,14 +51,13 @@ def twitter():
 	for ele in tweet_list:
 		tweets[count] = ele
 		count = count + 1
-	print ("The number of tweets is: ", len(tweets))
-	print ("done")
+
 	tweets = jsonify(tweets)
 	return tweets
 
 @app.route('/fb/', methods=['GET','POST'])
 def fb():
-	token = "EAACEdEose0cBAI9bRg3t5OQxTJeGbenoUaRhmvSq2XCmZByubtQYW9DZADh6hOz9kHpZCITHQzGDbs4gUhV2z1O5ALH014Fn95IpOnztpXWJQ1HJyP6ZB4gmUhjvZCOeDNeSeSZCUqWCzVLaCbgoSEenSFDLRbHLALKPTJE3DGRZC4Tx5OrKsWJqg6sghZCIzfgZD"
+	token = 'EAACEdEose0cBANjj14AHSJbY15lLAmnzDlUBl1tshSCjN7mVFqva1VglbEV2dIvuns7EpYAmZA3vIw5rOZAq2nVcdBNREOGnVt7COAEoEsf7RwrhSkU8k85Lv1wvO26lMcu3myrkncG9jrDtBdBEfCwGG0LBvtlZCjg9VSO1bF7ZAf6kQgDY2oSU6OsZBjkUZD'
 	id = request.json['param']
 	graph = facebook.GraphAPI(token)
 	page_id = id + '/feed'
